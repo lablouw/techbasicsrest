@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import techbasics.common.annotaiton.UncaughtExceptionHandler;
 import techbasics.common.manager.PersonManager;
 import techbasics.restservice.api.v2.model.Person;
 import techbasics.restservice.api.v2.model.ProcessedPerson;
@@ -21,6 +22,7 @@ import techbasics.restservice.mapper.ProcessedPersonMapper;
 @RestController
 @RequestMapping("/restService/v2")
 @Slf4j
+@UncaughtExceptionHandler
 public class RestServiceV2 {
 
 	@Autowired

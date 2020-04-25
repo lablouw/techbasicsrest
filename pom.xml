@@ -22,8 +22,9 @@
         <org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
         <io.springfox.version>2.9.2</io.springfox.version>
         <ch.qos.logback.version>1.2.3</ch.qos.logback.version>
+        <slf4j.api.version>1.7.30</slf4j.api.version>
         <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
-        <org.springframework.version>5.2.3.RELEASE</org.springframework.version>
+        <org.springframework.version>5.2.5.RELEASE</org.springframework.version>
     </properties>
 
     <modules>
