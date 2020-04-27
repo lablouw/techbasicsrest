@@ -40,7 +40,7 @@ public class RestServiceV1 {
 
 	@GetMapping(value = "/testException")
 	public ResponseEntity testException() throws Exception {
-		throw new Exception("Exception from method testRawException");
+		throw new Exception("Exception from rest method testException");
 	}
 
 }
