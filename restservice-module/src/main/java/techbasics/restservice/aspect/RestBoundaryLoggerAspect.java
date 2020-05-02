@@ -9,7 +9,7 @@ import org.springframework.util.StringUtils;
 @Aspect
 @Slf4j
 public class RestBoundaryLoggerAspect {
-    @Around("execution(public * techbasics.restservice.domain.techbasics.*.*(..))")
+    @Around("execution(public * techbasics.restservice.domain.service.*.*.*(..))")
     public Object logRestApiCall(ProceedingJoinPoint pjp) throws Throwable {
         String argsPattern = "";
         for (int i = 0; i < pjp.getArgs().length; i++) {
