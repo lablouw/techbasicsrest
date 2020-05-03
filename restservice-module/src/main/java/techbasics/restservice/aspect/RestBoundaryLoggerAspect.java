@@ -13,21 +13,16 @@ public class RestBoundaryLoggerAspect {
     public Object logRestApiCall(ProceedingJoinPoint pjp) throws Throwable {
         String argsPattern = "";
         for (int i = 0; i < pjp.getArgs().length; i++) {
-            argsPattern += "{},";
+            argsPattern += "{}, ";
         }
-        argsPattern = StringUtils.isEmpty(argsPattern) ? argsPattern : argsPattern.substring(0, argsPattern.length() - 1);
+        argsPattern = StringUtils.isEmpty(argsPattern) ? argsPattern : argsPattern.substring(0, argsPattern.length() - 2);
 
         String method = pjp.getSignature().getName();
 
-        log.info("Inbound: [method=" + method + (StringUtils.isEmpty(argsPattern) ? "]" : ", args=" + argsPattern + "]"), pjp.getArgs());
+        log.info("Inbound: [method={}, args=" + argsPattern + "]", method, pjp.getArgs());
+        Object ret = pjp.proceed();
+        log.info("Outbound: [method={}, response={}]", method, ret);
+        return ret;
 
-        try {
-            Object ret = pjp.proceed();
-            log.info("Outbound: [method=" + method + (ret == null ? "]" : ", response={}]"), ret);
-            return ret;
-        } catch (Throwable throwable) {
-            log.error("Error in method " + pjp.getSignature().getName(), throwable);
-            throw throwable;
-        }
     }
 }
