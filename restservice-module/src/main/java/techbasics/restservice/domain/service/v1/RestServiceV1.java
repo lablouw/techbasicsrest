@@ -27,7 +27,7 @@ import techbasics.restservice.mapper.ProcessedPersonMapper;
 public class RestServiceV1 {
 
 	@Autowired
-	PersonManager personManager;
+	private PersonManager personManager;
 
 	@PostMapping(value = "/processPerson", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ProcessedPerson> processPerson(@RequestBody Person person) {
